@@ -96,9 +96,6 @@ $normal-w: 400
 $bold-w: 700
 
 
-\:root
-  background-color: #222243
-
 html
   box-sizing: border-box
   width: 100%
@@ -167,9 +164,13 @@ p
   margin-left: auto
   max-width: 441px
   position: relative
+  &.dark
+    background-color: $black
+  &.light
+    background-color: #E5E5E5
 
 a
-  color: $lightGray !important
+  color: $lightGray
   cursor: pointer
   transition: $trs-site
   &:hover
@@ -181,6 +182,83 @@ button
   border: none
   padding: 12px
   border-radius: 12px
+
+.container.dark
+  .title, subtitle
+    color: $white
+
+  .header
+    color: $white
+
+  .small,
+  .paragraph
+    color: $lightGray
+
+  .box-input
+    background-color: $midnightGray
+
+  label
+    color: $lightGray
+
+  input
+    color: $lightGray
+    &::placeholder
+      color: $lightGray
+  a
+    color: $lightGray
+
+  .box-icon
+    background-color: $midnight
+
+  .navbar-like-item.unlike
+    background-color: $darkBlue
+
+  .navbar
+    background: $darkGray
+    &-item
+      background-color: $midnight
+
+  .list-history
+    background-color: #212135
+
+.container.light
+  .title, subtitle
+    color: #161617
+
+  .header
+    color: $white
+
+  .small,
+  .paragraph
+    color: $midnightBlue
+
+  .box-input
+    background-color: $white
+
+  label
+    color: #3C3C3C
+
+  input
+    color: #161617
+    &::placeholder
+      color: #161617
+
+  a
+    color: $midnightBlue
+
+  .box-icon
+    background-color: $white
+
+  .navbar-like-item.unlike
+    background-color: $white
+
+  .navbar
+    background: $white
+    &-item
+      background-color: #F5F5F5
+
+  .list-history
+    background-color: $white
 
 .title, subtitle,.header
   font-family: $secondary-font
@@ -195,13 +273,21 @@ button
   font-size: $h2-font-size
 
 .header
-  color: $white
+  font-size: $h3-font-size
+
+.small
+  font-weight: $bold-w
+  font-style: $text-sm
 
 .paragraph
   font-size: $p-font-size
   font-weight: $normal-w
   color: $lightGray
   line-height: $text-spacers-min
+
+// color
+.text-light-gray
+  color: $lightGray
 
 // Text aling
 .text-left
@@ -296,13 +382,18 @@ label
   background-color: #181828
 
 .box-input
-  background-color: $midnightGray
   border-radius: 12px
   padding: 16px 12px
 
+.box-history,
 .box-home
   position: relative
   height: 100vh
+
+.box-history
+  padding: 32px
+  &-header
+    margin-bottom: 14px
 
 //button
 .btn
@@ -317,7 +408,6 @@ label
 .navbar
   display: flex
   justify-content: space-around
-  background: $darkGray
   padding: 13px 12px
   border-radius: 16px
 
@@ -331,10 +421,11 @@ label
     width: 100%
     bottom: 15px
     margin: 0 auto
+    @media (max-width: 456px)
+      position: fixed
 
   &-item
     border-radius: 16px
-    background-color: $midnight
     height: 59px
     width: 59px
     display: flex
@@ -355,10 +446,11 @@ label
       &.unlike
         height: 45px
         width: 45px
-        background-color: $darkBlue
+        box-shadow: -0px 0px 22px -11px rgba(13,78,211,1)
+
       &.like
-        height: 59px
-        width: 59px
+        height: 81px
+        width: 81px
         background: linear-gradient(270deg, rgba(13,78,211,1) 0%, rgba(32,103,240,1) 100%)
         box-shadow: -0px 0px 22px -11px rgba(13,78,211,1)
 
@@ -398,16 +490,6 @@ label
       padding: 2rem
       color: $white
 
-      .box-icon
-        border-radius: 16px
-        background-color: $midnight
-        height: 59px
-        width: 59px
-        display: flex
-        justify-content: center
-        align-items: center
-
-
       h2
         position: absolute
         bottom: 0
@@ -415,3 +497,18 @@ label
         width: 100%
         padding: 0.2em 0.8em
         text-align: left
+
+
+
+.box-icon
+  border-radius: 16px
+  height: 59px
+  width: 59px
+  display: flex
+  justify-content: center
+  align-items: center
+  &-home
+    position: absolute
+    top: 15px
+    left: 15px
+    z-index: 1

@@ -4,7 +4,6 @@ interface Props extends SVGProps<SVGSVGElement> {
     fill?: string;
 }
 const Closed: FC<Props> = ({ fill, ...props }) => {
-    console.log('', props);
     return(
         <svg
             {...props}

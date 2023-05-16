@@ -1,21 +1,15 @@
-import {FC, useState, useContext, useEffect} from 'react'
+import {FC, useState, useContext, useEffect, SVGProps} from 'react'
 import { AuthContext } from '../context/auth-context'
 
 import { getPosts } from "../store/getPosts"
-import axios from "axios";
-//import 'firebase/database'
-
-import Closed from '../components/icons/Closed'
-import Light from "../components/icons/light";
+import Closed from '../components/icons/Closed';
 import Heart from "../components/icons/Heart";
-import Homes  from "../components/icons/Home";
-import History from "../components/icons/History";
-import SingOut from "../components/icons/SignOut";
-import firebase from "firebase/compat";
 import instance from "../store/instance";
 
-const Home: FC = () => {
-    const { currentUser, signOut } = useContext(AuthContext)
+interface HomeProps extends SVGProps<SVGSVGElement> {
+    theme?: string;
+}
+const Home: FC<HomeProps> = ({theme}) => {
     const [posts, setPosts ] = useState<Post[]>([]);
     const [history, setHistory] = useState<Post[]>([])
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -27,17 +21,6 @@ const Home: FC = () => {
             .catch((error) => console.error(error));
     }, [])
 
-    useEffect(() => {
-        instance.get("/results.json").then((response) => {
-            console.log(response)
-            const fetchedData = [];
-
-            for (const key in response.data) {
-                fetchedData.push({ ...response.data[key], id: key})
-            }
-            setHistory(fetchedData);
-        })
-    }, [])
     const handleLike = async () => {
         try {
             const currentObject = {...posts.sports[currentIndex], like: true};
@@ -50,6 +33,7 @@ const Home: FC = () => {
             console.log(error);
         }
     }
+
     const handleUnlike = async () => {
         try {
             const currentObject = {...posts.sports[currentIndex], like: false};
@@ -65,27 +49,15 @@ const Home: FC = () => {
         }
     }
 
-    console.log(history)
-
     return(
-      /**
-      * Extract the currrentUser from the context, if you want to
-      * get the User info, like the email, display name, etc.
-       * *
-      */
-      <div className="container bgc-black">
+      <div>
           <div className="box-home">
-
               {posts.sports?.length > 0 && (
                  <div>
-
                      <div className="grid mb-47">
                          <figure >
                              <img src={posts.sports[currentIndex].strSportThumb} alt=""/>
                              <figcaption>
-                                 <div className="box-icon">
-                                     <Light />
-                                 </div>
                                  <h2 className="subtitle">
                                      {posts.sports[currentIndex].strSport}
                                  </h2>
@@ -94,7 +66,7 @@ const Home: FC = () => {
                      </div>
                      <div className="navbar-like">
                          <div className="navbar-like-item unlike" onClick={handleUnlike}>
-                             <Closed fill={"white"} />
+                             <Closed fill={theme === 'dark'? "white": "red"} />
                          </div>
                          <div className="navbar-like-item like" onClick={handleLike}>
                              <Heart fill={"white"} />
@@ -102,26 +74,6 @@ const Home: FC = () => {
                      </div>
                  </div>
               )}
-
-              <div className="d-none">
-
-              </div>
-
-              <div className="navbar-fixed">
-               <div className="navbar-content">
-                <div className="navbar">
-                    <div className="navbar-item">
-                        <Homes fill={"white"} />
-                    </div>
-                    <div className="navbar-item">
-                        <History fill={"gray"} />
-                    </div>
-                    <div className="navbar-item" onClick={signOut}>
-                        <SingOut fill={"gray"} />
-                    </div>
-                </div>
-               </div>
-              </div>
           </div>
       </div>
     )
