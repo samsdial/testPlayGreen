@@ -4,7 +4,7 @@ import { Routes , Route, useNavigate } from 'react-router-dom'
 import { AuthContext } from './context/auth-context'
 import RequireAuth from './components/require-auth'
 import Login from './routes/login'
-import Profile from './routes/profile'
+import Home from './routes/home'
 
 function App() {
   const { currentUser } = useContext(AuthContext)
@@ -25,7 +25,7 @@ function App() {
       <Route index element={<Login />} />
       <Route path="profile" element={
         <RequireAuth>
-          <Profile />
+          <Home />
         </RequireAuth>
       } />
     </Routes>

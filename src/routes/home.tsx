@@ -8,13 +8,13 @@ import axios from "axios";
 import Closed from '../components/icons/Closed'
 import Light from "../components/icons/light";
 import Heart from "../components/icons/Heart";
-import Home  from "../components/icons/Home";
+import Homes  from "../components/icons/Home";
 import History from "../components/icons/History";
 import SingOut from "../components/icons/SignOut";
 import firebase from "firebase/compat";
 import instance from "../store/instance";
 
-const Profile: FC = () => {
+const Home: FC = () => {
     const { currentUser, signOut } = useContext(AuthContext)
     const [posts, setPosts ] = useState<Post[]>([]);
     const [history, setHistory] = useState<Post[]>([])
@@ -111,7 +111,7 @@ const Profile: FC = () => {
                <div className="navbar-content">
                 <div className="navbar">
                     <div className="navbar-item">
-                        <Home fill={"white"} />
+                        <Homes fill={"white"} />
                     </div>
                     <div className="navbar-item">
                         <History fill={"gray"} />
@@ -126,4 +126,4 @@ const Profile: FC = () => {
       </div>
     )
 }
-export default Profile
+export default Home
