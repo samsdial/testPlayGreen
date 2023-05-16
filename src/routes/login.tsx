@@ -9,7 +9,7 @@ import { ChangeEvent, FormEvent, useState } from 'react'
     password: '',
   }
 
-  function Home() {
+  function Login() {
     const [formFields, setFormFields] = useState(defaultFormFields)
     const { email, password } = formFields
     const navigate = useNavigate()
@@ -89,4 +89,4 @@ import { ChangeEvent, FormEvent, useState } from 'react'
     )
   }
 
-  export default Home
+  export default Login
