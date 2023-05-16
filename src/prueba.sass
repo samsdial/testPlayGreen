@@ -1,0 +1,417 @@
+$global-font-size: 100% !default
+
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;700&display=swap')
+
+// Color Desing
+$lightBlue: #2067F8
+$blue: #0D4ED3
+$midnightBlue: #232232
+$darkBlue: #222243
+$midnightGray: #2F2F43
+$lightGray: #FEFEFE
+$silver: #E5E5E5
+$darkGray: #2C2B3E
+$midnight: #1F1F31
+
+$primary: $darkBlue
+$secondary: $lightBlue
+$terciary: $silver
+
+// Color base
+$white: #fff
+$black: #000
+
+// breakpoints
+$S:     480px
+//todo: S:480px
+$M:     768px
+//todo:M: 768px
+$SL:    992px
+//todo:SL: 992px
+$L:     1024px
+//todo:L: 1024px
+$XL:    1239px
+//todo:XL:1239px
+$XXL:    1550px
+//todo:XL:1950px
+
+
+//MIXIN translate animation
+$trs-site       : all 500ms ease
+//
+$shadow					: 0 3px 8px 0 rgba($black, 0.35)
+$shadow-shopping-card	: 0 3px 8px 0 rgba($black, 0.35)
+$boxShadowTop			: 0 12px 11px 11px rgba($black, 0.15)
+$boxShadow			: 0 0 35px 0 rgba($black, 0.21 )
+$txt-shadow		:  2px 2px 2px rgba($black, 0.66)
+
+// Fonts site
+$primary-font: 'Epilogue', sans-serif
+$secondary-font: 'DM Sans', sans-serif
+
+//Spacer
+$spacer: 1rem
+$spacers0: 0
+$spacers7: 7px
+$spacers10: 10px
+$spacers3: $spacer
+$spacers15: 15px
+$spacers22: 22px
+$spacers47: 47px
+
+
+// text size
+$font-size-base: 1rem // 16px base from $global-font-size
+
+$text-xs: 	12px
+$text-sm: 	14px
+$text-base: $font-size-base
+$text-lg:	18px
+$text-xl: 	20px
+$text-2xl:	24px
+$text-3xl:	30px
+$text-4xl:	36px
+$text-5xl:	48px
+$text-6xl:	60px
+$text-7xl:	72px
+$text-8xl:	96px
+$text-9xl:	128px
+// Headers
+$h1-font-size: 42px
+$h2-font-size: 34px
+$h3-font-size: 24px
+$h4-font-size: 20px
+$h5-font-size: 18px
+$h6-font-size: 17px
+//paragraf
+$p-font-size: 18px
+
+//Text spacers
+$text-spacers-min: 26.64px
+$text-spacers-max: 51.25px
+
+$normal-w: 400
+$bold-w: 700
+
+
+\:root
+  background-color: #222243
+
+html
+  box-sizing: border-box
+  width: 100%
+  display: block
+
+body
+  width: 100%
+
+html, body
+  margin: 0 !important
+  padding: 0px
+  border: 0px
+  font: inherit
+  vertical-align: baseline
+  font-family: $primary-font
+  color: $white
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  margin: 0
+  font-size: $font-size-base
+  font-family: $primary-font, $secondary-font
+
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6
+  vertical-align: middle
+
+
+ul,
+li
+  list-style-type: none
+  margin: 0
+  padding: 0
+
+
+p
+  margin: 0
+  font-size: $font-size-base
+
+
+.center-container
+  height: 100vh
+  width: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+
+.container
+  width: 100%
+  margin-right: auto
+  margin-left: auto
+  max-width: 441px
+  position: relative
+
+a
+  color: $lightGray !important
+  cursor: pointer
+  transition: $trs-site
+  &:hover
+    color: silver !important
+
+button
+  background-color: $secondary
+  color: $white
+  border: none
+  padding: 12px
+  border-radius: 12px
+
+.title, subtitle,.header
+  font-family: $secondary-font
+  color: $white
+  font-weight: $bold-w
+  line-height: $text-spacers-max
+
+.title
+  font-size: $h1-font-size
+
+.subtitle
+  font-size: $h2-font-size
+
+.header
+  color: $white
+
+.paragraph
+  font-size: $p-font-size
+  font-weight: $normal-w
+  color: $lightGray
+  line-height: $text-spacers-min
+
+// Text aling
+.text-left
+  text-align: left
+.text-center
+  text-align: center
+.text-right
+  text-align: right
+
+//Margin
+.m-0
+  margin: $spacer
+.m-7
+  marging: $spacers7
+.m-22
+  margin: $spacers22
+//Margin button
+.mb-0
+  margin-bottom: $spacer
+.mb-7
+  margin-bottom: $spacers7
+.mb-22
+  margin-bottom: $spacers22
+.mb-47
+  margin-bottom: $spacers47 !important
+
+//Margin top
+.mt-0
+  margin-top: $spacer
+.mt-7
+  margin-top: $spacers7
+.mt-22
+  margin-top: $spacers22
+
+//Padding
+.p-0
+  padding: $spacer
+.p-7
+  padding: $spacers7
+.p-22
+  padding: $spacers22
+//Padding button
+.pb-0
+  padding: $spacer
+.pb-7
+  padding: $spacers7
+.pb-22
+  padding-bottom: $spacers22
+
+//Padding y
+.py-15
+  padding-left: $spacers15
+  padding-right: $spacers15
+//Padding top
+.pt-0
+  padding-top: $spacer
+.pt-7
+  padding-top: $spacers7
+.pt-22
+  padding-top: $spacers22
+
+.d-none
+  display: none
+
+.d-block
+  display: block
+
+.d-inline
+  display: inline-block
+
+//Form
+input
+  width: 100%
+  background-color: transparent
+  border: none
+  color: $lightGray
+  font-size: $text-lg
+  font-weight: $normal-w
+  &::placeholder
+    color: $lightGray
+  &:focus-visible
+    outline: none
+  &:autofill
+    background-color: transparent !important
+
+label
+  font-size: $text-sm
+  color: $lightGray
+  opacity: 60%
+
+.bgc-black
+  background-color: #181828
+
+.box-input
+  background-color: $midnightGray
+  border-radius: 12px
+  padding: 16px 12px
+
+.box-home
+  position: relative
+  height: 100vh
+
+//button
+.btn
+  font-family: $primary-font
+  font-size: $text-lg
+  border-radius: 25px
+  background: rgb(13,78,211)
+  padding: 22px 38px
+  background: linear-gradient(270deg, rgba(13,78,211,1) 0%, rgba(32,103,240,1) 100%)
+  box-shadow: -5px 13px 55px -11px rgba(13,78,211,1)
+
+.navbar
+  display: flex
+  justify-content: space-around
+  background: $darkGray
+  padding: 13px 12px
+  border-radius: 16px
+
+  &-content
+    display: block
+    margin: 0 auto
+    width: 88%
+
+  &-fixed
+    position: absolute
+    width: 100%
+    bottom: 15px
+    margin: 0 auto
+
+  &-item
+    border-radius: 16px
+    background-color: $midnight
+    height: 59px
+    width: 59px
+    display: flex
+    justify-content: center
+    align-items: center
+
+.navbar
+  &-like
+    display: flex
+    justify-content: center
+    align-items: center
+    &-item
+      display: flex
+      justify-content: center
+      align-items: center
+      border-radius: 50%
+      margin: 22px
+      &.unlike
+        height: 45px
+        width: 45px
+        background-color: $darkBlue
+      &.like
+        height: 59px
+        width: 59px
+        background: linear-gradient(270deg, rgba(13,78,211,1) 0%, rgba(32,103,240,1) 100%)
+        box-shadow: -0px 0px 22px -11px rgba(13,78,211,1)
+
+.grid
+  position: relative
+  margin: 0 auto
+  width: 100%
+  figure
+    position: relative
+    overflow: hidden
+    margin: 0
+    min-width: 320px
+    height: 500px
+    max-height: 564px
+    width: 100%
+    border-radius: 32px
+    background: linear-gradient(to bottom, rgba(37,141,200,1) 0%,rgba(0,0,0,1) 100%)
+
+    &:hover img
+      opacity: 0.5
+      transform: scale(1)
+    img
+      position: relative
+      display: block
+      width: 100%
+      min-height: 100%
+      max-width: 100%
+      opacity: 0.3
+      transform: scale(1.12)
+      transition: opacity 0.35s, transform 0.35s
+    figcaption
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 85%
+      padding: 2rem
+      color: $white
+
+      .box-icon
+        border-radius: 16px
+        background-color: $midnight
+        height: 59px
+        width: 59px
+        display: flex
+        justify-content: center
+        align-items: center
+
+
+      h2
+        position: absolute
+        bottom: 0
+        left: 0
+        width: 100%
+        padding: 0.2em 0.8em
+        text-align: left
